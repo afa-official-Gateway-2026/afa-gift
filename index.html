@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFA Fan Registration 2026</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #74b9ff, #ffffff, #74b9ff);
+            color: #2c3e50;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 450px;
+            width: 100%;
+            border: 3px solid #00a8ff;
+            box-sizing: border-box;
+        }
+        
+        /* Featured Image Style */
+        .featured-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid #74b9ff;
+        }
+
+        /* News Button Style */
+        .news-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #d63031;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(214, 48, 49, 0.3);
+            animation: pulse 1.5s infinite;
+        }
+        .news-badge {
+            background: white;
+            color: #d63031;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        /* Live Tracker */
+        .live-tracker {
+            background: #2f3542;
+            color: #2ed573;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        .live-dot { width: 8px; height: 8px; background: #2ed573; border-radius: 50%; animation: blink 1s infinite; }
+        .urgency-text { font-weight: bold; color: #d63031; font-size: 14px; margin: 5px 0 15px 0; animation: blink 1.2s infinite; }
+
+        /* Mega Pulse Button */
+        .mega-pulse-btn {
+            display: block;
+            background: linear-gradient(135deg, #2ed573, #26af5f);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 16px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+            animation: buttonPulse 1.5s infinite;
+            border: 2px solid #fff;
+        }
+
+        /* Gift Item Grid */
+        .gift-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .gift-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #74b9ff;
+            flex-shrink: 0;
+        }
+        .gift-details {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Share System Styles */
+        .share-section {
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px dashed #00a8ff;
+        }
+        .share-title { font-size: 13px; font-weight: bold; color: #2c3e50; margin-bottom: 10px; }
+        .share-buttons { display: flex; justify-content: center; gap: 10px; }
+        .share-btn-wa {
+            background: #25D366; color: white; padding: 10px 15px;
+            border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 13px;
+        }
+        .share-btn-fb {
+            background: #1877F2; color: white; padding: 10px 15px;
+            border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 13px;
+        }
+        
+        /* Comment Section */
+        .comment-section {
+            margin-top: 25px; text-align: left; background: #fff; padding: 15px;
+            border-radius: 10px; border: 1px solid #ddd;
+        }
+        .comment-header { font-size: 14px; font-weight: bold; color: #7f8c8d; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 15px; }
+        
+        /* User Input Fields */
+        .user-input-box { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; background: #f1f2f6; padding: 10px; border-radius: 8px; }
+        .user-input-box input, .user-input-box textarea {
+            padding: 8px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; font-family: inherit; outline: none;
+        }
+        .submit-comment-btn {
+            background: #00a8ff; color: white; border: none; padding: 8px; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 13px;
+        }
+
+        /* Comments Display Area */
+        .comments-display { max-height: 250px; overflow-y: hidden; }
+        .comment-box { display: flex; gap: 10px; margin-bottom: 12px; animation: slideIn 0.4s ease-out; }
+        .user-pic { width: 40px; height: 40px; border-radius: 50%; background: #dfe4ea; font-size: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid #ccc; flex-shrink: 0; }
+        .comment-content { background: #f1f2f6; padding: 8px 12px; border-radius: 12px; font-size: 13px; width: 100%; }
+        .user-name { font-weight: bold; color: #2c3e50; }
+
+        @keyframes buttonPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div style="background: linear-gradient(135deg, #00a8ff, #74b9ff); color: white; padding: 12px 20px; border-radius: 30px; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);">
+        📢 AFA OFFICIAL GLOBAL CAMPAIGN 2026
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1671377851918-a61bfa2b3ba3?q=80&w=600&auto=format&fit=crop" alt="Argentina Team" class="featured-img">
+
+    <h1 style="font-size: 24px; font-weight: 900; line-height: 1.4; margin: 0 0 15px 0;">
+        <span style="color: #00a8ff;">আর্জেন্টিনা ভক্তদের জন্য</span> <br>
+        <span style="background: linear-gradient(to right, #ff4757, #ff6b81); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 26px;">আর্জেন্টিনা সরকারের বিশেষ উপহার! 💥</span>
+    </h1>
+    
+    <div style="border-left: 4px solid #00a8ff; background: #f8f9fa; font-size: 14px; line-height: 1.6; color: #2c3e50; padding: 15px; border-radius: 0 12px 12px 0; text-align: justify; margin-bottom: 15px;">
+        The Argentine Football Association (AFA) এবং আর্জেন্টিনা সরকারের যৌথ উদ্যোগে বিশ্বজুড়ে ছড়িয়ে থাকা কোটি সমর্থকদের জন্য ঘোষণা করা হয়েছে <span style="color: #ff4757; font-weight: bold;">"মেগা ফ্যান গিভঅ্যাওয়ে ২০২৬"</span>! নিচের উপহারগুলো পেতে এখনই আপনার ফ্রি রেজিষ্ট্রেশন সম্পন্ন করুন। 🌟
+    </div>
+
+    <a href="YOUR_ADSTERRA_DIRECT_LINK_HERE" class="news-btn" target="_blank">
+        <span class="news-badge">LIVE</span> নিউজ : আর্জেন্টিনা ফুটবল ফেডারেশন 📰
+    </a>
+
+    <div style="margin-bottom: 25px;">
+        
+        <div class="gift-box" style="background: #e3f2fd; border-color: #90caf9;">
+            <img src="https://images.unsplash.com/photo-1541744573515-478c97798670?q=80&w=150&auto=format&fit=crop" alt="Jersey" class="gift-img">
+            <div class="gift-details" style="color: #0d47a1;">🇦🇷 আর্জেন্টিনার অফিশিয়াল সাইন করা জার্সি।</div>
+        </div>
+
+        <div class="gift-box" style="background: #fff9db; border-color: #ffe066;">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=150&auto=format&fit=crop" alt="Football" class="gift-img">
+            <div class="gift-details" style="color: #f59f00;">⚽ লিওনেল মেসি সাইন করা ফুটবল।</div>
+        </div>
+
+        <div class="gift-box" style="background: #e8f5e9; border-color: #a5d6a7;">
+            <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=150&auto=format&fit=crop" alt="Cash" class="gift-img">
+            <div class="gift-details" style="color: #1b5e20;">💰 AFA এর পক্ষ থেকে নগদ ৫০০ টাকা।</div>
+        </div>
+
+    </div>
+
+    <div class="live-tracker">
+        <span class="live-dot"></span>
+        <span>LIVE: <span id="user-count">1428</span> জন সফলভাবে রেজিষ্ট্রেশন করেছেন</span>
+    </div>
+
+    <div class="urgency-text">⚠️ অফারটি শেষ হওয়ার আগে এখনই নিচের বাটনে ক্লিক করে রেজিষ্ট্রেশন করুন!</div>
+    
+    <a href="YOUR_ADSTERRA_DIRECT_LINK_HERE" class="mega-pulse-btn" target="_blank">
+        🚀 ফ্রি রেজিষ্ট্রেশন করুন [REGISTER NOW]
+    </a>
+
+    <div class="share-section">
+        <div class="share-title">📢 অন্য সমর্থকদের সাথেও অফারটি শেয়ার করুন (ঐচ্ছিক):</div>
+        <div class="share-buttons">
+            <a href="whatsapp://send?text=আর্জেন্টিনা সরকারের বিশেষ উপহার! রেজিষ্ট্রেশন করলেই নিশ্চিত ৫০০ টাকা এবং মেসির সাইন করা ফুটবল/জার্সি একদম ফ্রি! এখানে রেজিষ্ট্রেশন করো: https://YOURBLOGURL.blogspot.com" class="share-btn-wa">
+                🟢 WhatsApp
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://YOURBLOGURL.blogspot.com" target="_blank" class="share-btn-fb">
+                🔵 Facebook
+            </a>
+        </div>
+    </div>
+
+    <div class="comment-section">
+        <div class="comment-header">💬 লাইভ কমেন্ট (Live Activity)</div>
+        
+        <div class="user-input-box">
+            <input type="text" id="visitorName" placeholder="আপনার নাম লিখুন..." required>
+            <textarea id="visitorComment" rows="2" placeholder="আপনার মতামত বা কমেন্ট লিখুন..." required></textarea>
+            <button class="submit-comment-btn" onclick="postUserComment()">কমেন্ট পোস্ট করুন 🚀</button>
+        </div>
+
+        <div class="comments-display" id="comment-container"></div>
+    </div>
+</div>
+
+<script>
+    // ১. ধীরগতির লাইভ কাউন্টার
+    let count = 1428; 
+    setInterval(() => { 
+        count += 1; 
+        document.getElementById('user-count').textContent = count; 
+    }, 5000);
+
+    // ২. লাইভ কমেন্ট ডাটাবেজ
+    const names = ["Md Rony", "Samiul Islam", "Arif Khan", "Alamin Hossain", "Tahsan Khan", "Imran Ahmed", "Nayeem Hasan"];
+    const comments = ["আমি সফল রেজিষ্ট্রেশন করছি, ধন্যবাদ আর্জেন্টিনা সরকার।", "আমি সফল রেজিষ্ট্রেশন করছি এবং ৫০০ টাকাও পেয়েছি! ৳", "আমার রেজিষ্ট্রেশন সফল হয়েছে। সবাই ট্রাই করুন দ্রুত!"];
+    const commentContainer = document.getElementById('comment-container');
+
+    function addComment(name, comment, isUser = false) {
+        const commentBox = document.createElement('div');
+        commentBox.className = 'comment-box';
+        const avatar = isUser ? "👤" : "🇦🇷";
+        
+        commentBox.innerHTML = `
+            <div class="user-pic">${avatar}</div>
+            <div class="comment-content">
+                <div class="user-name">${name} ${isUser ? '<span style="font-size:10px; color:#00a8ff; font-weight:normal;">(You)</span>' : ''}</div>
+                <div>${comment}</div>
+            </div>
+        `;
+        
+        commentContainer.insertBefore(commentBox, commentContainer.firstChild);
+        if (commentContainer.children.length > 4) {
+            commentContainer.removeChild(commentContainer.lastChild);
+        }
+    }
+
+    function postUserComment() {
+        const nameInput = document.getElementById('visitorName');
+        const commentInput = document.getElementById('visitorComment');
+        
+        if (nameInput.value.trim() === "" || commentInput.value.trim() === "") {
+            alert("অনুগ্রহ করে আপনার নাম এবং কমেন্ট দুটিই লিখুন!");
+            return;
+        }
+        addComment(nameInput.value, commentInput.value, true);
+        nameInput.value = "";
+        commentInput.value = "";
+    }
+
+    for(let i=0; i<2; i++) {
+        const randomName = names[Math.floor(Math.random() * names.length)];
+        const randomComment = comments[Math.floor(Math.random() * comments.length)];
+        addComment(randomName, randomComment);
+    }
+
+    setInterval(() => {
+        const randomName = names[Math.floor(Math.random() * names.length)];
+        const randomComment = comments[Math.floor(Math.random() * comments.length)];
+        addComment(randomName, randomComment);
+    }, 5000);
+</script>
+
+</body>
+</html>
